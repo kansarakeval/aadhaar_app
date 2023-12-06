@@ -16,7 +16,7 @@ class NetworkConnection {
   }
 
   void checkStatus(ConnectivityResult result,BuildContext context) {
-    if (result.index==3) {
+    if (result.index==1 || result.index==3) {
       context.read<HomeProvider>().changeStatus(true);
       print("InterNet is on");
     } else {

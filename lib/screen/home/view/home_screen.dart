@@ -1,3 +1,4 @@
+import 'package:aadhaar_app/screen/home/modal/home_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:aadhaar_app/screen/home/provider/home_provider.dart';
@@ -41,14 +42,32 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisSpacing: 8.0,
                   mainAxisSpacing: 8.0,
                 ),
-                itemCount: 6,
+                itemCount: providerw!.services.length,
                 itemBuilder: (BuildContext context, int index) {
+                  ServiceModeal service = providerr!.services[index];
                   return Container(
-                    color: Colors.blue,
-                    child: Center(
-                      child: Text(
-                        'Grid Item $index',
-                        style: const TextStyle(fontSize: 20, color: Colors.white),
+                    margin: EdgeInsets.symmetric(horizontal: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            service.icon,
+                            size: 50,
+                          ),
+                          Text(
+                            '${service.title}',
+                            style: const TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   );
@@ -58,11 +77,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image(image: AssetImage("assets/image/wifi.png"),width: 100,height: 100,),
-                    Text("no Network connection",style: (TextStyle(fontSize: 20)),)
+                    Image(
+                      image: AssetImage("assets/image/wifi.png"),
+                      width: 100,
+                      height: 100,
+                    ),
+                    Text(
+                      "no Network connection",
+                      style: (TextStyle(fontSize: 20)),
+                    )
                   ],
                 ),
-        ),
+              ),
       ),
     );
   }

@@ -52,22 +52,27 @@ class _HomeScreenState extends State<HomeScreen> {
                       border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            service.icon,
-                            size: 50,
-                          ),
-                          Text(
-                            '${service.title}',
-                            style: const TextStyle(
-                              fontSize: 16,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, 'link',arguments: service);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              service.icon,
+                              size: 50,
                             ),
-                          ),
-                        ],
+                            Text(
+                              '${service.title}',
+                              style: const TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   );
